@@ -24,7 +24,7 @@ public class ControllerUser {
 	@Autowired
 	private TaxUserService taxUserService;
 	
-	public void setTaxUserService(TaxUserService taxUserService){this.taxUserService = taxUserService;}
+	//public void setTaxUserService(TaxUserService taxUserService){this.taxUserService = taxUserService;}
 	
 	@RequestMapping(value = "/listaUsuarios/", method = RequestMethod.GET)
 	  public ResponseEntity<List<TaxUser>> listUsers() {
