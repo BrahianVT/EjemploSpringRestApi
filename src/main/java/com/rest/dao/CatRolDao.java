@@ -9,4 +9,5 @@ public interface CatRolDao {
 	public void guardar(CatRol rol);
 	public CatRol getRolById(int idRol);
 	public List<CatRol> getListaRol();
+	public void borrar(CatRol rol);
 }

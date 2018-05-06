@@ -31,4 +31,10 @@ public class CatRolServiceImp implements CatRolService{
 		return catRolDao.getListaRol();
 	}
 
+	@Override
+	public void borrar(CatRol rol) {
+		 catRolDao.borrar(rol);
+		
+	}
+
 }

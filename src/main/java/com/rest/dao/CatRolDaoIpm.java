@@ -31,5 +31,10 @@ public class CatRolDaoIpm implements CatRolDao {
 	public List<CatRol> getListaRol() {
 		return (List<CatRol>)getSession().createQuery("from CatRol",CatRol.class).getResultList();
 	}
+	@Override
+	public void borrar(CatRol rol) {
+		getSession().delete(rol);
+		
+	}
 
 }

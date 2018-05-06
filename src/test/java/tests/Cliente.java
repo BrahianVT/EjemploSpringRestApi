@@ -110,13 +110,29 @@ public class Cliente {
 		return usuario;
 	}
 	 
+	public void mostrarUsuarios(){
+		RestTemplate restTemplate = new RestTemplate();
+		HttpEntity<String> request = new HttpEntity<String>(getHeaders());
+		String url = REST_SERVICE_URI+"/listaRol";
+		ResponseEntity<List> response = restTemplate.exchange(url,HttpMethod.GET,request,List.class);
+		List<LinkedHashMap<String,Object>> lista = (List<LinkedHashMap<String,Object>>) response.getBody();
+		
+		if(lista != null){
+			for(LinkedHashMap<String, Object> index : lista){
+				System.out.println(index.get("idRol"));
+				System.out.println(index.get("description"));
+			}
+		}
+		
+	}
 	public static void main(String[] args){
 		
 		Cliente cliente = new Cliente();
 		System.out.println("Buscando sesion paps");
 		try{
-			cliente.listUsers();
+			//cliente.listUsers();
 			//cliente.iniciarSession("bra", "pumas123");
+			cliente.mostrarUsuarios();
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
